@@ -1,0 +1,21 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Event {
+  artistsNames String?
+  createdAt    DateTime  @default(now())
+  date         DateTime?
+  description  String?
+  id           String    @id @default(cuid())
+  location     String?
+  name         String?
+  ticketPrices Float?
+  time         DateTime?
+  updatedAt    DateTime  @updatedAt
+}
